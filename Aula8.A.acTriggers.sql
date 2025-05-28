@@ -5,7 +5,8 @@
 --Ao eliminar um curso da lista do aluno, os seus créditos totais deverão ser reduzidos.
 --Construa uma Trigger chamada dbo.lost_credits que atualiza o valor de créditos de um aluno após a retirada de um curso da sua lista.
 
-CREATE OR ALTER TRIGGER dbo.lost_credits
+--Cria a Trigger
+CREATE TRIGGER dbo.lost_credits
 ON dbo.takes
 AFTER DELETE
 AS
@@ -38,7 +39,7 @@ BEGIN
     END CATCH;
 END;
 
-
+--Veirifica Créditos
 SELECT ID, name, tot_cred FROM student WHERE ID = '30299';
 
 -- Remove um curso do aluno
